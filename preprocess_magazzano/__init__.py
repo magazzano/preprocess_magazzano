@@ -1,6 +1,6 @@
 from preprocess_magazzano import utils
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 def contpalavras(x):
 	return utils._contpalavras(x)

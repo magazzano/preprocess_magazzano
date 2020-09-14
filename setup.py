@@ -6,7 +6,7 @@ with open('README.md', 'r') as file:
 
 setuptools.setup(
 	name = 'preprocess_magazzano',
-	version = '0.0.1',
+	version = '0.0.2',
 	author = 'Marcelo Gazzano',
 	author_email = 'magazzano@gmail.com',
 	description = 'This is preprocessing package',
