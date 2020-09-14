@@ -113,18 +113,21 @@ def _removeacento(x):
 def _removestopwords(x):
 	return ' '.join([t for t in x.split() if t not in stopwords])
 
-# remove palavras "comuns"; n = % palavras a ser retirada
-def _removepalavrascomuns(x, n=20):
-	text = x.split()
+# contador de valores
+def _contvalores(df, col):
+	text = ' '.join(df[col])
+	text = text.split()
 	freq_comm = pd.Series(text).value_counts()
+	return freq_comm
+
+# remove palavras "comuns"; n = % palavras a ser retirada
+def _removepalavrascomuns(x, freq, n=20):
 	fn = freq_comm[:n]
 	x = ' '.join([t for t in x.split() if t not in fn])
 	return x
 
 # remove palavras raras; n = % palavras a ser retirada
-def _removepalavrasraras(x, n=20):
-	text = x.split()
-	freq_comm = pd.Series(text).value_counts()
+def _removepalavrasraras(x, freq, n=20):
 	fn = freq_comm.tail(n)	
 	x = ' '.join([t for t in x.split() if t not in fn])
 	return x
